@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – AnyDoc's Translator</title>
+  <meta name="description" content="Privacy Policy for AnyDoc's Translator Chrome Extension. Learn how we handle your data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #0d0f14;
+      --surface: #161a23;
+      --surface-2: #1e2433;
+      --border: rgba(255,255,255,0.07);
+      --accent: #6c63ff;
+      --accent-2: #38bdf8;
+      --text: #e8eaf0;
+      --text-muted: #8b95a8;
+      --green: #22c55e;
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #0d0f14 0%, #12152a 50%, #0d1a2e 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 24px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(108,99,255,0.18) 0%, transparent 70%);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108,99,255,0.12);
+      border: 1px solid rgba(108,99,255,0.3);
+      color: #a78bfa;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .badge::before { content: '🔒'; font-size: 14px; }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin: 0 auto 28px;
+    }
+    .meta-bar {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .meta-bar span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── QUICK SUMMARY CARDS ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .summary-card:hover {
+      border-color: rgba(108,99,255,0.35);
+      transform: translateY(-2px);
+    }
+    .summary-card .icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .summary-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .summary-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 36px 32px;
+      margin-bottom: 24px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #9333ea);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    p, li {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    p + p { margin-top: 12px; }
+    ul, ol {
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+    li { margin-bottom: 8px; }
+    li::marker { color: var(--accent); }
+    strong { color: var(--text); font-weight: 500; }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight {
+      background: rgba(34,197,94,0.06);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .highlight::before { content: '✅'; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .highlight p { color: #86efac; font-size: 0.9rem; margin: 0; }
+
+    .warn {
+      background: rgba(251,191,36,0.06);
+      border: 1px solid rgba(251,191,36,0.2);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .warn::before { content: 'ℹ️'; font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .warn p { color: #fde68a; font-size: 0.9rem; margin: 0; }
+
+    /* ── TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: var(--surface-2);
+      color: var(--text);
+      font-weight: 600;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* ── CONTACT CARD ── */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(108,99,255,0.1), rgba(56,189,248,0.07));
+      border: 1px solid rgba(108,99,255,0.25);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      margin-top: 32px;
+    }
+    .contact-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .contact-card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 18px; }
+    .contact-card a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .contact-card a:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    footer a { color: var(--accent-2); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .section { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="badge">Privacy Policy</div>
+    <h1>AnyDoc's Translator</h1>
+    <p class="hero-sub">We are committed to protecting your privacy. This policy explains exactly what data our extension collects, uses, and never shares.</p>
+    <div class="meta-bar">
+      <span>📅 Effective date: April 26, 2026</span>
+      <span>🔄 Last updated: April 26, 2026</span>
+      <span>📄 Version 1.0.0</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- QUICK SUMMARY -->
+    <div class="summary-grid">
+      <div class="summary-card">
+        <span class="icon">🚫</span>
+        <h3>No Data Collection</h3>
+        <p>We do not collect, store, or transmit any personal data to our servers.</p>
+      </div>
+      <div class="summary-card">
+        <span class="icon">🌐</span>
+        <h3>Third-Party APIs Only</h3>
+        <p>Translation requests go directly to Google Translate or Microsoft Translator APIs.</p>
+      </div>
+      <div class="summary-card">
+        <span class="icon">💾</span>
+        <h3>Local Storage Only</h3>
+        <p>Your preferences and settings are saved only in your browser's local storage.</p>
+      </div>
+      <div class="summary-card">
+        <span class="icon">🔒</span>
+        <h3>No Tracking</h3>
+        <p>We use no analytics, cookies, or any form of user tracking whatsoever.</p>
+      </div>
+    </div>
+
+    <!-- 1. OVERVIEW -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <h2>1. Overview</h2>
+      </div>
+      <p>This Privacy Policy applies to the <strong>AnyDoc's Translator</strong> Chrome extension ("Extension", "we", "us", or "our"). It describes how we handle information when you use our Extension. We take your privacy seriously and have designed our Extension to operate with minimal data access.</p>
+      <p>By installing and using the Extension, you agree to the practices described in this policy.</p>
+    </div>
+
+    <!-- 2. WHAT DATA WE ACCESS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">🔍</div>
+        <h2>2. What Data the Extension Accesses</h2>
+      </div>
+      <p>The Extension accesses only the data strictly necessary to provide translation functionality:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>Purpose</th>
+            <th>Stored?</th>
+            <th>Shared?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Page text content</strong></td>
+            <td>Sent to translation API to render translated output</td>
+            <td>No</td>
+            <td>Only with chosen translation API (Google/Microsoft)</td>
+          </tr>
+          <tr>
+            <td><strong>Selected text</strong></td>
+            <td>Translated on demand when you highlight text</td>
+            <td>No</td>
+            <td>Only with chosen translation API</td>
+          </tr>
+          <tr>
+            <td><strong>User preferences</strong></td>
+            <td>Target language, engine choice, UI settings</td>
+            <td>Yes — browser local storage only</td>
+            <td>Never</td>
+          </tr>
+          <tr>
+            <td><strong>Active tab URL</strong></td>
+            <td>Required to inject translation script into the current page</td>
+            <td>No</td>
+            <td>Never</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight">
+        <p>We do <strong>not</strong> collect names, email addresses, IP addresses, browsing history, financial information, health information, or any other personal data.</p>
+      </div>
+    </div>
+
+    <!-- 3. HOW WE USE DATA -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">⚙️</div>
+        <h2>3. How We Use Data</h2>
+      </div>
+      <p>Data accessed by the Extension is used solely for the following purposes:</p>
+      <ul>
+        <li><strong>Translation:</strong> Page text and selected text are transmitted to a third-party translation API (e.g., Google Translate, Microsoft Translator) chosen by you to produce translated results. This transmission occurs entirely between your browser and the third-party API.</li>
+        <li><strong>Settings persistence:</strong> Your preferred language, translation engine, and UI preferences are stored in your browser's local storage so your settings are remembered between sessions.</li>
+      </ul>
+      <p>We do not use data for advertising, profiling, analytics, or any purpose beyond providing translation functionality.</p>
+    </div>
+
+    <!-- 4. PERMISSIONS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">🛡️</div>
+        <h2>4. Chrome Extension Permissions</h2>
+      </div>
+      <p>The Extension requests the following Chrome permissions. Each is used only for the stated purpose:</p>
+      <ul>
+        <li><strong>activeTab</strong> — Allows the Extension to access and translate the content of the tab you are currently viewing, only when you activate the Extension.</li>
+        <li><strong>storage</strong> — Saves your language preferences and settings locally in Chrome's storage so you don't have to reconfigure them each time.</li>
+        <li><strong>contextMenus</strong> — Adds a "Translate Selection" option to the right-click context menu for quick translation of highlighted text.</li>
+        <li><strong>scripting</strong> — Allows the Extension to inject the translation overlay script into the current page.</li>
+        <li><strong>host_permissions (&lt;all_urls&gt;)</strong> — Necessary so the Extension can translate content on any website you choose to translate.</li>
+      </ul>
+      <div class="warn">
+        <p>No permission is used for data collection, tracking, or purposes other than those listed above.</p>
+      </div>
+    </div>
+
+    <!-- 5. THIRD-PARTY SERVICES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">🌐</div>
+        <h2>5. Third-Party Translation Services</h2>
+      </div>
+      <p>When you request a translation, the text you wish to translate is sent to the translation service you have selected. These services have their own privacy policies, which we encourage you to review:</p>
+      <ul>
+        <li><strong>Google Translate API</strong> — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color: var(--accent-2);">https://policies.google.com/privacy</a></li>
+        <li><strong>Microsoft Translator (Azure Cognitive Services)</strong> — <a href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer" style="color: var(--accent-2);">https://privacy.microsoft.com/privacystatement</a></li>
+      </ul>
+      <p>We are not responsible for the privacy practices of these third-party services.</p>
+    </div>
+
+    <!-- 6. DATA RETENTION -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">🗑️</div>
+        <h2>6. Data Retention &amp; Deletion</h2>
+      </div>
+      <p>We retain <strong>no user data on any server</strong>. The only data stored is your preferences in your local browser storage.</p>
+      <p>You can delete all locally stored data at any time by:</p>
+      <ul>
+        <li>Uninstalling the Extension (this clears all local storage for the Extension), or</li>
+        <li>Opening Chrome → Extensions → AnyDoc's Translator → "Clear Data" in the Extension's options page.</li>
+      </ul>
+    </div>
+
+    <!-- 7. CHILDREN -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">👶</div>
+        <h2>7. Children's Privacy</h2>
+      </div>
+      <p>Our Extension is not directed at children under the age of 13. We do not knowingly collect any personal information from children. If you believe a child has provided information through our Extension, please contact us and we will take steps to address it.</p>
+    </div>
+
+    <!-- 8. CHANGES -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon">🔄</div>
+        <h2>8. Changes to This Privacy Policy</h2>
+      </div>
+      <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
+      <p>Continued use of the Extension after any changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <!-- 9. CONTACT -->
+    <div class="contact-card">
+      <h3>Questions or Concerns?</h3>
+      <p>If you have any questions about this Privacy Policy or the data practices of this Extension, please contact us.</p>
+      <a href="mailto:srw.aditya@gmail.com">Contact Us</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 AnyDoc's Translator &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    <p style="margin-top: 8px;">This privacy policy was last updated on April 26, 2026.</p>
+  </footer>
+
+</body>
+</html>
